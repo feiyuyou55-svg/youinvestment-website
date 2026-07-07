@@ -1,0 +1,57 @@
+/** Services — CMS-ready */
+
+export const WEALTH_DIAGNOSIS = {
+  titleZh: '免费财富管理诊断',
+  titleEn: 'Free Wealth Management Diagnosis',
+  route: '/wealth-diagnosis',
+  formIntent: 'diagnosis',
+  advisoryIntent: 'advisory',
+
+  home: {
+    introZh: '3 分钟完成财富管理初步评估。',
+    introEn: 'Complete a preliminary wealth assessment in 3 minutes.',
+    combinesZh: ['风险承受能力', '账户类型', '投资目标', '长期规划'],
+    combinesEn: ['Risk tolerance', 'Account type', 'Investment goals', 'Long-term planning'],
+    combinesLabelZh: '系统将结合：',
+    combinesLabelEn: 'The system considers:',
+    combinesOutcomeZh: '生成初步财富管理建议。',
+    combinesOutcomeEn: 'to generate preliminary wealth management recommendations.',
+    itemsZh: [
+      '风险承受力评估',
+      'IRA 退休规划初步分析',
+      '家庭资产配置分析',
+      '证券账户配置建议',
+      '银行账户与现金管理建议',
+      '长期养老金规划初步建议',
+      '推荐适合的账户类型',
+      '推荐适合的策略组合',
+    ],
+    itemsEn: [
+      'Risk tolerance assessment',
+      'Preliminary IRA retirement planning',
+      'Family asset allocation analysis',
+      'Securities account allocation guidance',
+      'Bank account & cash management guidance',
+      'Preliminary long-term pension planning',
+      'Recommended account types',
+      'Recommended strategy combinations',
+    ],
+    itemsLabelZh: '诊断内容：',
+    itemsLabelEn: 'Assessment includes:',
+    outcomeZh: '完成诊断后，可进一步预约投资顾问进行一对一交流。',
+    outcomeEn: 'After completion, you may schedule a one-on-one adviser consultation.',
+    ctaZh: '开始免费诊断',
+    ctaEn: 'Start Free Diagnosis',
+  },
+
+  contact: {
+    introZh: '完成免费财富管理诊断后，我们将结合您的账户情况、财富目标与风险偏好，提供初步财富管理建议。',
+    introEn: 'After completing the free wealth management diagnosis, we provide preliminary recommendations based on your accounts, goals, and risk profile.',
+    followUpZh: '如需进一步交流，可预约投资顾问进行一对一沟通。',
+    followUpEn: 'For further discussion, schedule a one-on-one consultation with an investment adviser.',
+    ctaDiagnosisZh: '开始免费诊断',
+    ctaDiagnosisEn: 'Start Free Diagnosis',
+    ctaAdvisoryZh: '预约顾问交流',
+    ctaAdvisoryEn: 'Schedule Adviser Consultation',
+  },
+}
