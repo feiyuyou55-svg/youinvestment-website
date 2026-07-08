@@ -2,18 +2,24 @@ import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
 import PageHeader from '../components/PageHeader'
 import StrategyTable from '../components/StrategyTable'
+import { STRATEGIES_PAGE } from '../data/siteContent'
 import { STRATEGY_LIST } from '../data/strategies'
 import { WEALTH_DIAGNOSIS } from '../data/services'
 
 export default function Strategies() {
   const { locale, t } = useLanguage()
   const s = t.strategies
+  const page = STRATEGIES_PAGE
   const isZh = locale === 'zh'
   const d = WEALTH_DIAGNOSIS
 
   return (
     <>
-      <PageHeader label={s.label} title={s.title} desc={s.subtitle} />
+      <PageHeader
+        label={isZh ? page.labelZh : page.labelEn}
+        title={isZh ? page.titleZh : page.titleEn}
+        desc={isZh ? page.subtitleZh : page.subtitleEn}
+      />
 
       <section className="section section--compact">
         <div className="container">
@@ -25,7 +31,7 @@ export default function Strategies() {
             showPositioning
             showAccounts
           />
-          <p className="strategies-footnote">{s.footnote}</p>
+          <p className="strategies-footnote">{isZh ? page.footnoteZh : page.footnoteEn}</p>
         </div>
       </section>
 

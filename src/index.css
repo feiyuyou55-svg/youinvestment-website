@@ -569,6 +569,29 @@ ul { list-style: none; }
 
 .wealth-diagnosis__links { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; justify-content: center; }
 
+.index-card { padding: 24px; background: var(--white); border: 1px solid var(--gray-200); border-left: 3px solid var(--gold); margin-bottom: 20px; }
+.index-card h2 { font-family: var(--font-display); font-size: 1.25rem; color: var(--navy-deep); margin-bottom: 12px; }
+.index-card__short { font-size: 0.85rem; color: var(--gold); font-weight: 400; }
+.index-card__method { font-size: 0.9rem; color: var(--gray-600); margin-bottom: 16px; line-height: 1.65; }
+.index-card__metrics { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin-bottom: 12px; }
+.index-card__metrics dt { font-size: 0.65rem; font-weight: 600; color: var(--gray-400); text-transform: uppercase; }
+.index-card__metrics dd { font-size: 0.9rem; color: var(--navy-deep); }
+.index-card__disclaimer { font-size: 0.75rem; color: var(--gray-600); }
+
+.doc-list { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+.doc-card { padding: 20px; background: var(--white); border: 1px solid var(--gray-200); border-top: 3px solid var(--gold); }
+.doc-card__type { font-size: 0.65rem; font-weight: 700; letter-spacing: 0.1em; color: var(--gold); text-transform: uppercase; }
+.doc-card h3 { font-size: 1rem; color: var(--navy-deep); margin: 8px 0; }
+.doc-card p { font-size: 0.85rem; color: var(--gray-600); margin-bottom: 12px; line-height: 1.6; }
+.doc-card__meta { display: flex; gap: 24px; margin-bottom: 12px; font-size: 0.8rem; }
+.doc-card__meta dt { font-size: 0.65rem; color: var(--gray-400); text-transform: uppercase; }
+.doc-card__pending { font-size: 0.75rem; color: var(--gray-400); font-style: italic; }
+
+@media (max-width: 768px) {
+  .index-card__metrics { grid-template-columns: 1fr 1fr; }
+  .doc-list { grid-template-columns: 1fr; }
+}
+
 .risk-report__actions { display: flex; flex-wrap: wrap; gap: 10px; align-items: center; }
 
 .hero-core__label {

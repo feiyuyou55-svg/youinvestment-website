@@ -63,13 +63,13 @@ export default function Home() {
 
             <div className="hero-cta">
               <Link to="/contact?intent=account" className="hero-cta__btn hero-cta__btn--primary">
-                <span className="hero-cta__btn-label">{t.home.ctaAccount}</span>
+                <span className="hero-cta__btn-label">{isZh ? h.ctaAccountZh : h.ctaAccountEn}</span>
               </Link>
               <Link to="/strategies" className="hero-cta__btn hero-cta__btn--secondary">
-                <span className="hero-cta__btn-label">{t.home.ctaStrategies}</span>
+                <span className="hero-cta__btn-label">{isZh ? h.ctaStrategiesZh : h.ctaStrategiesEn}</span>
               </Link>
               <Link to="/risk-assessment" className="hero-cta__btn hero-cta__btn--outline">
-                <span className="hero-cta__btn-label">{t.home.ctaRisk}</span>
+                <span className="hero-cta__btn-label">{isZh ? h.ctaRiskZh : h.ctaRiskEn}</span>
               </Link>
             </div>
           </div>

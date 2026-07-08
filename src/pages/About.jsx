@@ -6,6 +6,9 @@ import EcoModule from '../components/EcoModule'
 import ActivityCard from '../components/ActivityCard'
 import { ABOUT_PAGE, WHY_YIM, ECOSYSTEM_MODULES } from '../data/ecosystem'
 import { ACTIVITIES } from '../data/activities'
+import TeamCard from '../components/TeamCard'
+import { ABOUT_TEAM_SECTION } from '../data/siteContent'
+import { getVisibleTeamMembers, TEAM_PAGE } from '../data/team'
 
 export default function About() {
   const { locale, t } = useLanguage()
@@ -43,7 +46,29 @@ export default function About() {
         </div>
       </section>
 
-      <section className="section section--compact section--gray" id="events">
+      <section className="section section--compact section--gray" id="team">
+        <div className="container">
+          <h2 className="section-subtitle">{isZh ? ABOUT_TEAM_SECTION.titleZh : ABOUT_TEAM_SECTION.titleEn}</h2>
+          <p className="section-desc">{isZh ? ABOUT_TEAM_SECTION.descZh : ABOUT_TEAM_SECTION.descEn}</p>
+          <div className="team-grid">
+            {getVisibleTeamMembers().map((member) => (
+              <TeamCard
+                key={member.id}
+                member={member}
+                locale={locale}
+                viewDetailLabel={isZh ? TEAM_PAGE.viewDetailZh : TEAM_PAGE.viewDetailEn}
+              />
+            ))}
+          </div>
+          <div className="section-cta">
+            <Link to="/team" className="btn btn--outline-navy">
+              {isZh ? ABOUT_TEAM_SECTION.ctaZh : ABOUT_TEAM_SECTION.ctaEn}
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <section className="section section--compact" id="events">
         <div className="container">
           <h2 className="section-subtitle">{a.eventsTitle}</h2>
           <p className="section-desc">{a.eventsDesc}</p>

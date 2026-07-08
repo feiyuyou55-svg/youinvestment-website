@@ -122,12 +122,23 @@ function getOptionLabel(questions, answers, qId) {
   return q.options.find((o) => o.score === answers[qId])?.label || '—'
 }
 
+export const RISK_LEVEL_MAPPING = [
+  { maxScore: 8, levelZh: '保守', levelEn: 'Conservative', tierKey: '12', strategies: ['gcta-defensive'] },
+  { maxScore: 11, levelZh: '中低风险', levelEn: 'Moderate-Low', tierKey: '12', strategies: ['gcta-defensive', 'gcta-core'] },
+  { maxScore: 15, levelZh: '平衡', levelEn: 'Balanced', tierKey: '34', strategies: ['gcta-core', 'cai-index'] },
+  { maxScore: 19, levelZh: '中高风险', levelEn: 'Moderate-High', tierKey: '45', strategies: ['gcta-growth', 'enhanced-sp500', 'cai-index'] },
+  { maxScore: 24, levelZh: '高风险', levelEn: 'High Risk', tierKey: 'high', strategies: ['flexible-alpha', 'enhanced-nasdaq', 'gcta-growth'] },
+]
+
+export const RISK_DISCLAIMER = {
+  zh: '本评估结果仅供参考，不构成投资建议。',
+  en: 'For reference only — not investment advice.',
+}
+
+export const RECOMMENDED_STRATEGY_RULES = RISK_LEVEL_MAPPING
+
 function getRiskLevel(total) {
-  if (total <= 8) return { levelZh: '保守', levelEn: 'Conservative', tierKey: '12', strategies: ['conservative', 'bond'] }
-  if (total <= 11) return { levelZh: '中低风险', levelEn: 'Moderate-Low', tierKey: '12', strategies: ['conservative', 'bond', 'balanced'] }
-  if (total <= 15) return { levelZh: '平衡', levelEn: 'Balanced', tierKey: '34', strategies: ['balanced', 'cai'] }
-  if (total <= 19) return { levelZh: '中高风险', levelEn: 'Moderate-High', tierKey: '45', strategies: ['growth', 'dynamic', 'cai'] }
-  return { levelZh: '高风险', levelEn: 'High Risk', tierKey: 'high', strategies: ['alpha', 'dynamic', 'growth'] }
+  return RISK_LEVEL_MAPPING.find((r) => total <= r.maxScore) || RISK_LEVEL_MAPPING[RISK_LEVEL_MAPPING.length - 1]
 }
 
 export function calculateResult(answers, locale) {

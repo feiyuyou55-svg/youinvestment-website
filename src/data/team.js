@@ -1,6 +1,5 @@
 /**
  * Team — CMS-ready member directory
- * Roles: adviser | manager | channel | state_lead | researcher | associate | partner | cio
  */
 
 export const TEAM_ROLES = [
@@ -33,45 +32,59 @@ export const TEAM_PAGE = {
   bioEn: 'Biography',
   contactZh: '联系方式',
   contactEn: 'Contact',
+  licensesZh: '执业资格',
+  licensesEn: 'Licenses',
 }
 
 export const TEAM_MEMBERS = [
   {
     id: 'feiyu-you',
     slug: 'feiyu-you',
+    name: 'Feiyu You',
     nameZh: '游飞宇',
     nameEn: 'Feiyu You',
+    title: 'Founder & CIO',
     titleZh: 'Founder & CIO',
     titleEn: 'Founder & CIO',
-    summaryZh: '周期框架投资体系提出者，24 年跨周期投资管理经验。',
-    summaryEn: 'Proponent of the cycle-framework investment system; 24 years cross-cycle experience.',
-    photoUrl: null,
+    role: 'cio',
+    state: null,
+    location: 'United States',
     locationZh: '美国',
     locationEn: 'United States',
+    photoUrl: null,
+    summaryZh: '周期框架投资体系提出者，24 年跨周期投资管理经验。',
+    summaryEn: 'Proponent of the cycle-framework investment system; 24 years cross-cycle experience.',
+    bioZh: '游飞宇先生创立 You Investment Management LLC，提出周期框架投资体系。',
+    bioEn: 'Feiyu You founded You Investment Management LLC and established the cycle-framework investment system.',
+    licenses: ['RIA'],
+    licensesZh: ['美国注册投资顾问（RIA）'],
+    licensesEn: ['U.S. Registered Investment Adviser (RIA)'],
+    specialties: { zh: ['资产配置', '周期框架', '账户管理'], en: ['Asset allocation', 'Cycle framework', 'Account management'] },
     qualificationsZh: ['美国注册投资顾问（RIA）', 'Founder & Chief Investment Officer'],
     qualificationsEn: ['U.S. Registered Investment Adviser (RIA)', 'Founder & Chief Investment Officer'],
     expertiseZh: ['资产配置', '周期框架', '账户管理', '模型组合', '长期财富管理'],
     expertiseEn: ['Asset allocation', 'Cycle framework', 'Account management', 'Model portfolios', 'Long-term wealth management'],
-    bioZh: '游飞宇先生创立 You Investment Management LLC，提出周期框架投资体系。拥有 24 年跨周期投资管理经验。',
-    bioEn: 'Feiyu You founded You Investment Management LLC and established the cycle-framework investment system.',
     email: null,
     phone: null,
-    role: 'cio',
+    contactDisplay: false,
     isFounder: true,
     sortOrder: 1,
-    visible: true,
+    visibility: 'public',
+    status: 'published',
   },
 ]
 
 export function getVisibleTeamMembers() {
-  return TEAM_MEMBERS.filter((m) => m.visible).sort((a, b) => a.sortOrder - b.sortOrder)
+  return TEAM_MEMBERS
+    .filter((m) => m.visibility === 'public' && m.status === 'published')
+    .sort((a, b) => a.sortOrder - b.sortOrder)
 }
 
 export function getTeamMemberBySlug(slug) {
   const member = TEAM_MEMBERS.find((m) => m.slug === slug)
-  return member?.visible ? member : null
+  return member?.visibility === 'public' ? member : null
 }
 
 export function getFounderTeamMember() {
-  return TEAM_MEMBERS.find((m) => m.isFounder && m.visible) || null
+  return TEAM_MEMBERS.find((m) => m.isFounder && m.visibility === 'public') || null
 }

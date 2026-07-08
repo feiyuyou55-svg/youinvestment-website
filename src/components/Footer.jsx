@@ -1,8 +1,11 @@
 import { Link } from 'react-router-dom'
 import { useLanguage } from '../i18n/LanguageContext'
+import { FOOTER_CONTENT } from '../data/siteContent'
 
 export default function Footer() {
-  const { t } = useLanguage()
+  const { locale, t } = useLanguage()
+  const isZh = locale === 'zh'
+  const footer = FOOTER_CONTENT
 
   return (
     <footer className="site-footer">
@@ -13,7 +16,7 @@ export default function Footer() {
               <span className="logo__name">{t.company.shortName}</span>
               <span className="logo__tag">LLC</span>
             </Link>
-            <p>{t.footer.desc}</p>
+            <p>{isZh ? footer.descZh : footer.descEn}</p>
           </div>
           <div>
             <h4 className="footer__heading">{t.footer.services}</h4>
@@ -21,6 +24,8 @@ export default function Footer() {
               <li><Link to="/accounts">{t.nav.accounts}</Link></li>
               <li><Link to="/strategies">{t.nav.strategies}</Link></li>
               <li><Link to="/risk-assessment">{t.nav.riskAssessment}</Link></li>
+              <li><Link to="/indices">{isZh ? footer.indicesZh : footer.indicesEn}</Link></li>
+              <li><Link to="/documents">{isZh ? footer.documentsZh : footer.documentsEn}</Link></li>
               <li><Link to="/wealth-diagnosis">{t.footer.wealthDiagnosis}</Link></li>
             </ul>
           </div>

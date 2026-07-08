@@ -21,7 +21,7 @@ export const FEATURED_ACCOUNTS = [
       'For equities, ETFs, and long-term wealth management.',
       'Strategies matched to your risk level.',
     ],
-    strategyIds: ['growth', 'balanced', 'cai', 'dynamic'],
+    strategyIds: ['gcta-growth', 'gcta-core', 'cai-index', 'enhanced-sp500'],
     riskCta: true,
   },
   {
@@ -37,7 +37,7 @@ export const FEATURED_ACCOUNTS = [
       'For retirement planning and long-term wealth accumulation.',
       'Tax advantages and long-term compounding.',
     ],
-    strategyIds: ['balanced', 'cai', 'growth', 'conservative', 'bond'],
+    strategyIds: ['gcta-core', 'cai-index', 'gcta-growth', 'gcta-defensive'],
     riskCta: false,
   },
 ]
